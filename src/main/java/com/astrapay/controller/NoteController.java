@@ -18,6 +18,7 @@ import java.util.*;
 @Api(value = "NoteController")
 @Slf4j
 @RequestMapping("/v1/notes")
+@CrossOrigin(origins = "http://localhost:4200")
 public class NoteController {
     private final NoteService noteService;
 

@@ -1,7 +1,7 @@
 package com.astrapay.controller.advice;
 
 import com.astrapay.dto.APIResponse;
-import com.astrapay.exception.CustomException;
+import com.astrapay.exception.CustomCheckedException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -15,8 +15,8 @@ import java.util.stream.Collectors;
 @ControllerAdvice
 class GlobalControllerExceptionHandler {
 
-    @ExceptionHandler(CustomException.class)
-    public ResponseEntity<APIResponse<Void>> handleCustomException(CustomException e){
+    @ExceptionHandler(CustomCheckedException.class)
+    public ResponseEntity<APIResponse<Void>> handleCustomException(CustomCheckedException e){
         return new ResponseEntity<>(
                 new APIResponse<>(e.getErrorStatus(), List.of(e.getMessage())),
                 HttpStatus.valueOf(e.getErrorHttpStatus())
