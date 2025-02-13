@@ -20,43 +20,53 @@ import java.util.stream.Collectors;
 @Slf4j
 @RequiredArgsConstructor
 public class NoteService {
-//do not hardcode
+
     private final NoteRepository noteRepository;
     private final ModelMapper modelMapper;
+
+    public static final String SUCCESS_STATUS = "Success";
+    public static final String FAILED_STATUS = "Failed";
+    public static final String NOTE_ADDED_MESSAGE = "Note is added!";
+    public static final String NOTE_UPDATED_MESSAGE = "Note is updated!";
+    public static final String NOTE_DELETED_MESSAGE = "Note is deleted!";
+    public static final String NOTE_FOUND_MESSAGE = "Note is found!";
+    public static final String NOTES_FETCHED_MESSAGE = "Successfully fetched all notes";
+    public static final String NOTE_ALREADY_EXISTS_MESSAGE = "Note already exists!";
+    public static final String ID_NOT_FOUND_MESSAGE = "ID %d is not found!";
 
     public APIResponse<List<NoteDto>> getAllNotes() {
         List<Note> notes = noteRepository.findAll();
         List<NoteDto> notesResponse = notes.stream()
              .map(note -> modelMapper.map(note, NoteDto.class))
              .collect(Collectors.toList());
-        return new APIResponse<>("Success", Collections.singletonList("Notes fetched successfully!"), notesResponse);
+        return new APIResponse<>(SUCCESS_STATUS, Collections.singletonList(NOTES_FETCHED_MESSAGE), notesResponse);
     }
 
     public APIResponse<NoteDto> getNoteById(Long id){
         Optional<Note> note = noteRepository.findById(id);
         if(note.isEmpty()){
-            throw new CustomCheckedException("ID "+id+" is not found!", 404, "Status Failed");
+            throw new CustomCheckedException(NOTE_ALREADY_EXISTS_MESSAGE, 400, FAILED_STATUS);
         }
         Note noteFound = note.get();
         NoteDto noteResponse = modelMapper.map(noteFound, NoteDto.class);
-        return new APIResponse<>("Success", Collections.singletonList("Note is found!"), noteResponse);
+        return new APIResponse<>(SUCCESS_STATUS, Collections.singletonList(NOTE_FOUND_MESSAGE), noteResponse);
     }
 
     public APIResponse<NoteDto> addNote(NoteRequestDto request){
         Optional<Note> checkTitle = noteRepository.findByTitle(request.getTitle());
         if(checkTitle.isPresent()){
-            throw new CustomCheckedException("Note already exists!", 400, "Status Failed");
+            throw new CustomCheckedException(NOTE_ALREADY_EXISTS_MESSAGE, 400, FAILED_STATUS);
         }
         Note note = modelMapper.map(request, Note.class);
         noteRepository.save(note);
         NoteDto noteResponse = modelMapper.map(note, NoteDto.class);
-        return new APIResponse<>("Success", Collections.singletonList("Note is added!"), noteResponse);
+        return new APIResponse<>(SUCCESS_STATUS, Collections.singletonList(NOTE_ADDED_MESSAGE), noteResponse);
     }
 
     public APIResponse<NoteDto> updateNoteById(NoteRequestDto request, Long id){
         Optional<Note> note = noteRepository.findById(id);
         if(note.isEmpty()){
-            throw new CustomCheckedException("ID "+id+" is not Found", 404, "Status Failed");
+            throw new CustomCheckedException(String.format(ID_NOT_FOUND_MESSAGE, id), 404, FAILED_STATUS);
         }
         Note noteFound = note.get();
         noteFound.setTitle(request.getTitle());
@@ -64,16 +74,16 @@ public class NoteService {
         noteRepository.save(noteFound);
 
         NoteDto response = modelMapper.map(noteFound, NoteDto.class);
-        return new APIResponse<>("Success", Collections.singletonList("Note is updated!"), response);
+        return new APIResponse<>(SUCCESS_STATUS, Collections.singletonList(NOTE_UPDATED_MESSAGE), response);
     }
 
     public APIResponse<String> deleteNoteById(Long id) {
         Optional<Note> note = noteRepository.findById(id);
         if(note.isEmpty()){
-            throw new CustomCheckedException("ID "+id+" is not Found", 404, "Status Failed");
+            throw new CustomCheckedException(String.format(ID_NOT_FOUND_MESSAGE, id), 404, FAILED_STATUS);
         }
         noteRepository.deleteById(id);
-        return new APIResponse<>("Success", Collections.singletonList("Note is deleted!"));
+        return new APIResponse<>(SUCCESS_STATUS, Collections.singletonList(NOTE_DELETED_MESSAGE));
     }
 
 }
