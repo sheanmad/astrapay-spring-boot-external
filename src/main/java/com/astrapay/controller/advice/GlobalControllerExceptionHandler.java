@@ -29,7 +29,7 @@ class GlobalControllerExceptionHandler {
         List<String> errors = e.getBindingResult()
                 .getFieldErrors()
                 .stream()
-                .map(error -> error.getField() + " " + error.getDefaultMessage())
+                .map(error -> error.getDefaultMessage())
                 .collect(Collectors.toList());
         return ResponseEntity.badRequest().body(new APIResponse<>("Failed", errors));
     }

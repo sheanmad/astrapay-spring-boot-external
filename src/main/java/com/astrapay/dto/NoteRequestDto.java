@@ -12,7 +12,7 @@ import javax.validation.constraints.Size;
 @AllArgsConstructor
 public class NoteRequestDto {
     @NotBlank(message = "Title is mandatory")
-    @Size(max = 100, message = "Title cannot be longer than 100 characters")
+    @Size(max = 50, message = "Title cannot be longer than 50 characters")
     private String title;
 
     @NotBlank(message = "Content is mandatory")
