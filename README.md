@@ -1,13 +1,12 @@
-ok lemme try my own issue, will it works!???wkwk
 # Note Project Spring Boot Application
 
 ## Overview
 
-The Note Projcet Spring Boot Application is a RESTful web service that allows users to manage notes. It provides endpoints to create, read, update, and delete notes. The application is built using Spring Boot and follows best practices for RESTful API design.
+The Note Project Spring Boot Application is a RESTful web service provides endpoints to create, read, update, and delete notes. The application is built using Spring Boot and follows best practices for RESTful API design.
 
 ## Table of Contents
-- [Installation](#installation)
 - [Features](#features)
+- [Installation](#installation)
 - [API](#api)
 - [Screenshots](#screenshots)
 
@@ -15,14 +14,6 @@ The Note Projcet Spring Boot Application is a RESTful web service that allows us
 
 - Create, read, update, and delete notes.
 - Input validation for note creation and updates.
-
-## Technologies Used
-
-- **Java 11**: Programming language.
-- **Spring Boot 2.7.18**: Framework for building the application.
-- **Lombok**: Library to reduce boilerplate code.
-- **ModelMapper**: For object mapping between DTOs and entities.
-- **JUnit & Mockito**: For unit testing.
 
 ## Installation
 
@@ -71,11 +62,19 @@ The Note Projcet Spring Boot Application is a RESTful web service that allows us
   - **Endpoint**: `DELETE /v1/notes/{id}`
 
 ## Screenshots
+- **Add Note**
 ![Image](https://github.com/user-attachments/assets/5e501134-bafd-4d84-90df-e0a8563187e0)
-![Image](https://github.com/user-attachments/assets/15a9444e-3c98-4699-83c8-8c60da8288b7)
-![Image](https://github.com/user-attachments/assets/b050577d-9d4d-49bf-bdbc-84a6b8c5200a)
-![Image](https://github.com/user-attachments/assets/6fadf1bb-0dae-44b2-a730-b6bfb2db49cf)
-![Image](https://github.com/user-attachments/assets/7743c104-861a-4c7c-a894-03757f2d7509)
+- **Get All Notes**
 ![Image](https://github.com/user-attachments/assets/40c1517b-f2dc-4044-9402-ec6418ba5ba1)
+- **Update Note**
+![Image](https://github.com/user-attachments/assets/6fadf1bb-0dae-44b2-a730-b6bfb2db49cf)
+- **Update Note Evidence**
+![Image](https://github.com/user-attachments/assets/7743c104-861a-4c7c-a894-03757f2d7509)
+- **Delete Note**
+![Image](https://github.com/user-attachments/assets/15a9444e-3c98-4699-83c8-8c60da8288b7)
+- **Delete Note Evidence**
+![Image](https://github.com/user-attachments/assets/b050577d-9d4d-49bf-bdbc-84a6b8c5200a)
+- **Validation Length**
 ![Image](https://github.com/user-attachments/assets/bf07a0d8-4a43-4c11-855e-2493c5bf3907)
+- **Validation Not Blank**
 ![Image](https://github.com/user-attachments/assets/277010c6-e583-4821-aa0a-71178cce5f08)
