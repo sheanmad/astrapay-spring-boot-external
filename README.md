@@ -27,8 +27,15 @@ The Note Project Spring Boot Application is a RESTful web service provides endpo
 
 3. **Run the application**:
    You can run the application using the following command via your IDE.
-
    The application will start on port `8000` as specified in `application.properties`.
+   
+4. **Use it as Backend of the Angular Note Project**:
+   This Spring Boot application serves as the backend for the Angular Note Project, which can be found at:
+   ```bash
+   https://github.com/sheanmad/astrapay-note-project-angular
+   ```
+   The backend is configured to handle CORS issues by allowing requests from port 4200, as specified in NoteController.java.
+
 
 ## API
 -Base API URL: `http://127.0.0.1:8000`
