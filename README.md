@@ -1,12 +1,15 @@
-help me complete the readme file
-
-still not able to complete the readme~~ how do i can input images into these readme if its forked i cannot find issue hereee helpppp XD
-
+ok lemme try my own issue, will it works!???wkwk
 # Note Project Spring Boot Application
 
 ## Overview
 
 The Note Projcet Spring Boot Application is a RESTful web service that allows users to manage notes. It provides endpoints to create, read, update, and delete notes. The application is built using Spring Boot and follows best practices for RESTful API design.
+
+## Table of Contents
+- [Installation](#installation)
+- [Features](#features)
+- [API](#api)
+- [Screenshots](#screenshots)
 
 ## Features
 
@@ -36,9 +39,7 @@ The Note Projcet Spring Boot Application is a RESTful web service that allows us
 
    The application will start on port `8000` as specified in `application.properties`.
 
-## Usage
-
-### API Endpoints
+## API
 -Base API URL: `http://127.0.0.1:8000`
 - **Create a Note**
   - **Endpoint**: `POST /v1/notes/add`
@@ -69,4 +70,12 @@ The Note Projcet Spring Boot Application is a RESTful web service that allows us
 - **Delete a Note**
   - **Endpoint**: `DELETE /v1/notes/{id}`
 
-### Screen Shots
+## Screenshots
+![Image](https://github.com/user-attachments/assets/5e501134-bafd-4d84-90df-e0a8563187e0)
+![Image](https://github.com/user-attachments/assets/15a9444e-3c98-4699-83c8-8c60da8288b7)
+![Image](https://github.com/user-attachments/assets/b050577d-9d4d-49bf-bdbc-84a6b8c5200a)
+![Image](https://github.com/user-attachments/assets/6fadf1bb-0dae-44b2-a730-b6bfb2db49cf)
+![Image](https://github.com/user-attachments/assets/7743c104-861a-4c7c-a894-03757f2d7509)
+![Image](https://github.com/user-attachments/assets/40c1517b-f2dc-4044-9402-ec6418ba5ba1)
+![Image](https://github.com/user-attachments/assets/bf07a0d8-4a43-4c11-855e-2493c5bf3907)
+![Image](https://github.com/user-attachments/assets/277010c6-e583-4821-aa0a-71178cce5f08)
