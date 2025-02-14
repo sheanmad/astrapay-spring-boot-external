@@ -23,7 +23,7 @@ The Note Project Spring Boot Application is a RESTful web service provides endpo
    cd astrapay-spring-boot-external
    ```
 
-2. **Build the project**:
+2. **Build the project**
 
 3. **Run the application**:
    You can run the application using the following command via your IDE.
